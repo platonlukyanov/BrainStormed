@@ -31,14 +31,14 @@
                 </div>
             </div>
             <div class="interface__write">
-                <form action="" method="POST" class="write-idea">
+                <form action="" method="POST" class="write-idea" id="write-idea-form">
 
                         <textarea class="input area write-idea-input write-idea-text" name="text"
                                   id="idea-form"></textarea>
                     <img src="{{ url_for('static', filename='palette.svg') }}"
                          class="color-input choose-idea-color">
-
-                    <button type="button" class="create-btn write-idea-btn" value="Отправить" id="write-idea-btn">
+                    <input type="color" name="color" style="display: none" id="color-sender">
+                    <button type="submit" class="create-btn write-idea-btn" value="Отправить" id="write-idea-btn">
                         Отправить
                     </button>
                 </form>
@@ -48,34 +48,7 @@
     </div>
     <script src={{ url_for('static', filename="querySendBtnChanger.js") }}></script>
     <script src={{ url_for('static', filename="work_color_picker.js") }}></script>
-    <script>
-
-        // Sending to server
-        function sendIdea(hueb) {
-            let formData = new FormData();
-            let text = document.getElementById('idea-form').value;
-            let color = hueb.color;
-            if (!color) {
-                color = "#f1dcc9";
-            }
-            formData.append("text", text);
-            formData.append("color", color);
-
-            let request = new XMLHttpRequest();
-            request.open("POST", "{{ url_for('stormif', code=storm.code) }}");
-
-            request.send(formData);
-            setTimeout(() => {
-                window.location.reload();
-            }, 0.3)
-
-        }
-
-        let btn = document.getElementById('write-idea-btn');
-        btn.addEventListener('click', () => {
-            sendIdea(hueb);
-        });
-    </script>
+    <script src={{ url_for('static', filename="pre-sending-changer.js") }}></script>
     <script src={{ url_for('static', filename="description_closer.js") }}></script>
     <script src={{ url_for('static', filename="datetime_changer.js") }}></script>
     

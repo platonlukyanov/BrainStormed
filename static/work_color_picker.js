@@ -1,5 +1,5 @@
 let colorInput = document.querySelector('.color-input');
-        let hueb = new Huebee(colorInput, {
+        var hueb = new Huebee(colorInput, {
 
             setBGColor: true,
             hue0: 0,
