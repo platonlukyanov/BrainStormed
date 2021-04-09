@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% block title %}
+{{ storm.name }}
+{% endblock %}
+{% block description %}
+    {{ storm.description }}
+{% endblock %}
+
+{% block content %}
+    <div class="interface-content">
+
+        <div class="interface">
+            <div class="interface-infomediacontent">
+                <div class="heading">
+                    <h1 class="storm-name">{{ storm.name }}</h1>
+                    <div class="description">
+                        <button type="button" id="show-hide-btn">Показать описание шторма</button>
+                        <h2 style="display: none;" class="storm-desc">{{ storm.description }}</h2>
+                    </div>
+                </div>
+                <div class="interface__main">
+    
+                    {% for idea in ideas %}
+                        <div class="idea-card" style="background-color: {{ idea.color }}">
+                            <p>
+                                {{ idea.text }}
+                            </p>
+                            <i>{{ idea.created }}</i>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="interface__write">
+                <form action="" method="POST" class="write-idea">
+
+                        <textarea class="input area write-idea-input write-idea-text" name="text"
+                                  id="idea-form"></textarea>
+                    <img src="{{ url_for('static', filename='palette.svg') }}"
+                         class="color-input choose-idea-color">
+
+                    <button type="button" class="create-btn write-idea-btn" value="Отправить" id="write-idea-btn">
+                        Отправить
+                    </button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+    <script src={{ url_for('static', filename="querySendBtnChanger.js") }}></script>
+    <script src={{ url_for('static', filename="work_color_picker.js") }}></script>
+    <script>
+
+        // Sending to server
+        function sendIdea(hueb) {
+            let formData = new FormData();
+            let text = document.getElementById('idea-form').value;
+            let color = hueb.color;
+            if (!color) {
+                color = "#f1dcc9";
+            }
+            formData.append("text", text);
+            formData.append("color", color);
+
+            let request = new XMLHttpRequest();
+            request.open("POST", "{{ url_for('stormif', code=storm.code) }}");
+
+            request.send(formData);
+            setTimeout(() => {
+                window.location.reload();
+            }, 0.3)
+
+        }
+
+        let btn = document.getElementById('write-idea-btn');
+        btn.addEventListener('click', () => {
+            sendIdea(hueb);
+        });
+    </script>
+    <script src={{ url_for('static', filename="description_closer.js") }}></script>
+    <script src={{ url_for('static', filename="datetime_changer.js") }}></script>
+    
+
+{% endblock %}

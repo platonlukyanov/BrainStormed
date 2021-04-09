@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}
+{% block title %}
+{{ storm.name }} создан
+{% endblock %}
+
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1 class="big-text">
+            Поздравляем! Вы создали шторм "{{ storm.name }} Сохраните этот код!"
+         </h1>
+        
+         <h2 class="big-tip">Ваш код шторма: </h2> <h1 class="big-code">{{ storm.code }}</h1>
+       <a href="/storm/{{ storm.code }}" class="btn little-btn enter-btn follow-btn">Перейти в шторм</a>
+    </div>
+{% endblock %}

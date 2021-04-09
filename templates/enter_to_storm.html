@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}
+    Вход
+{% endblock %}
+{% block content %}
+    <div class="content">
+        <h1 class="big-tip">
+            Для того чтобы войти в шторм, введите код шторма:
+        </h1>
+        
+       
+        <form action="" method="POST" class="form-place">
+            <input type="text" name="code" class="input code-input" autocomplete="off">
+            <button type="submit" class="btn enter-btn big-btn center-btn">Войти</button>
+        </form>
+        
+    </div>
+{% endblock %}
