@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, make_response
 from flask_migrate import Migrate, MigrateCommand
 from config import Config
 from flask_script import Manager
@@ -103,11 +103,33 @@ def stormif(code):
             ss.add(idea)
             ss.commit()
         except Exception:
-            return redirect(url_for('index'))
+            return redirect(url_for('page_not_found'))
 
     storm = Storm.query.filter(Storm.code == code).first_or_404()
     ideas = storm.ideas.order_by(Idea.created.desc())
-    return render_template("storm_interface.html", storm=storm, ideas=ideas)
+    if code not in request.cookies.get("STORMS", "").split('```'):
+        resp = make_response(render_template("storm_interface.html", storm=storm, ideas=ideas))
+        now_cookies = request.cookies.get("STORMS", "").split('```')
+        now_cookies.append(code)
+        value = "```".join(now_cookies)
+        resp.set_cookie("STORMS", value)
+        return resp
+    else:
+        return render_template("storm_interface.html", storm=storm, ideas=ideas)
+
+
+@app.route("/mystorms")
+def my_storms():
+    my_storms = request.cookies.get("STORMS", "")
+    my_storms = my_storms.split("```")
+    storms = []
+    for my_storm in my_storms:
+        if my_storm:
+            storms.append(Storm.query.filter(Storm.code == my_storm).first())
+
+    # if not storms:
+    #     return render_template('404.html'), 404
+    return render_template('your_storms.html', storms=storms)
 
 
 if __name__ == '__main__':

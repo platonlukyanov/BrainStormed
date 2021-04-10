@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %} Ваши штормы {% endblock %}
+{% block description %} Ваши штормы {% endblock %}
+
+{% block content %}
+
+    <div class="content">
+        <h1>Ваши последние штормы: </h1>
+        <div class="storms-list">
+            {% for storm in storms %}
+                <div class="storm-card">
+                    <h4 class="storm-card-name">{{ storm.name }}</h4>
+                    <p class="little-storm-description">Описание: <br>{{ storm.description }}</p>
+                    <div class="little-follow-btn enter-btn">
+                        <a href="/storm/{{ storm.code }}">Перейти</a>
+                    </div>
+                </div>
+
+
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -313,6 +313,33 @@ button {
     text-shadow: none;
     }
 
+.storm-card {
+    word-wrap: break-word;
+    border: 3px solid #b4a5a5;
+    margin: 2%;
+    padding: 2%;
+    border-radius: 20px;
+}
+
+.storm-card-name {
+    font-weight: bold;
+    font-size: 4vh;
+    margin: 2% auto;
+}
+
+.little-follow-btn {
+    text-align: center;
+    width: 30%;
+    padding: 2%;
+    margin-top: 2%;
+
+
+}
+
+.storms-list {
+    width: 50%;
+    margin: 2% auto;
+}
 @media (max-width: 720px) {
     .interface {
         width: 95%;
