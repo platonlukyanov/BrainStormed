@@ -129,7 +129,7 @@ def my_storms():
 
     # if not storms:
     #     return render_template('404.html'), 404
-    return render_template('your_storms.html', storms=storms)
+    return render_template('your_storms.html', storms=storms[::-1])
 
 
 if __name__ == '__main__':
