@@ -8,7 +8,7 @@ function prepare_data(hueb) {
 
         }
 
-        let colorSender = document.getElementById("write-idea-form");
-        colorSender.addEventListener("submit", ()=>{
-            prepare_data(hueb);
-        })
+let colorSender = document.getElementById("write-idea-form");
+colorSender.addEventListener("submit", ()=>{
+    prepare_data(hueb);
+})

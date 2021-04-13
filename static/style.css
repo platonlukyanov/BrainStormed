@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #151515;
+
     color: #b4a5a5;
     margin: 0;
     padding: 0;
@@ -46,6 +46,9 @@ textarea {
     list-style: none;
     display: flex;
     justify-content: space-between;
+    margin-right: 9%;
+    align-items: center;
+    margin-top: 0;
 }
 
 .menu-content.mobile {
@@ -86,6 +89,7 @@ textarea {
 }
 
 .menu-item>a {
+    white-space: nowrap; 
     font-size: 2.5vh;
     color: #301b3f;
     transition-duration: 0.3s;
@@ -102,6 +106,7 @@ textarea {
 }
 
 .menu-content.mobile>.menu-item>a {
+    white-space: nowrap; 
     font-size: 3.5vh;
     color: #301b3f;
     transition-duration: 0.3s;
@@ -440,6 +445,12 @@ button {
     margin: 2% auto;
 }
 @media (max-width: 720px) {
+    .storms-list {
+        width: 80%;
+    }
+    .little-follow-btn {
+        width: 70%;
+    }
     .interface {
         width: 95%;
 
@@ -463,9 +474,13 @@ button {
     .big-tip {
         font-size: 3vh;
     }
+    
     .input {
-        width: 100%;
+        width: 90%;
         font-size: 2vh;
+    }
+    .code-input {
+        width: 70%;
     }
     .big-btn {
         height: 10%;
@@ -499,5 +514,6 @@ button {
     .storm-name {
         font-size: 3vh;
     }
+    
 
 }
