@@ -11,37 +11,60 @@
     <title>{% block title %}Page{% endblock %} | BrainStormed - создание идей!</title>
     <link rel="stylesheet" href={{ url_for('static', filename='style.css') }}>
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/huebee@2/dist/huebee.min.css">
-    <script src="https://unpkg.com/huebee@2/dist/huebee.pkgd.min.js"></script>
-    <script src={{ url_for('static', filename='luxon.js') }}></script>
     <link rel="shortcut icon" href="{{ url_for('static', filename="logo.png") }}" type="image/x-icon">
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () {
+                (m[i].a = m[i].a || []).push(arguments)
+            };
+            m[i].l = 1 * new Date();
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(75937318, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/75937318" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 </head>
 <body style="background-image: url({{ url_for('static', filename="background.png") }});">
-    <div class="main">
-        <nav class="menu">
-            <div class="logo">
+<div class="main">
+    <nav class="menu">
+        <div class="logo">
 
-               <a href="/"> <img src="{{ url_for('static', filename='logo.png') }}" alt="BrainStormed" class="image-logo"></a>
-            </div>
-            <ul class="menu-content normal" id="menu-content">
+            <a href="/"> <img src="{{ url_for('static', filename='logo.png') }}" alt="BrainStormed" class="image-logo"></a>
+        </div>
+        <ul class="menu-content normal" id="menu-content">
 
-                <li class="menu-item"><a href="{{ url_for('create_storm') }}">Создать шторм</a></li>
-                <li class="menu-item"><a href="{{ url_for('enter_to_storm') }}">Войти в шторм</a></li>
-                <li class="menu-item"><a href="{{ url_for('index') }}">На главную</a></li>
-                <li class="menu-item"><a href="{{ url_for('my_storms') }}">Мои штормы</a></li>
+            <li class="menu-item"><a href="{{ url_for('create_storm') }}">Создать шторм</a></li>
+            <li class="menu-item"><a href="{{ url_for('enter_to_storm') }}">Войти в шторм</a></li>
+            <li class="menu-item"><a href="{{ url_for('my_storms') }}">Мои штормы</a></li>
+            <li class="menu-item"><a href="{{ url_for('index') }}">На главную</a></li>
 
-            </ul>
-            <div class="burger-menu">
-                <img src="{{ url_for('static', filename='hamburger-menu.svg') }}" alt="Меню" class="burger" id="burger">
-            </div>
-        </nav>
+        </ul>
+        <div class="burger-menu">
+            <img src="{{ url_for('static', filename='hamburger-menu.svg') }}" alt="Меню" class="burger" id="burger">
+        </div>
+    </nav>
 
-        {% block content %}
+    {% block content %}
 
-        {% endblock %}
+    {% endblock %}
 
 
-       
-    </div>
-    <script src="{{ url_for('static', filename='burger-menu.js') }}"></script>
+</div>
+<script src="{{ url_for('static', filename='burger-menu.js') }}"></script>
+<script>
+    if (window.history.replaceState) {
+        window.history.replaceState(null, null, window.location.href);
+    }
+</script>
 </body>
 </html>

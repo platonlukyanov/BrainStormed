@@ -11,8 +11,11 @@
 
         <div class="interface">
             <div class="interface-infomediacontent">
+                <div class="countdown" id="countdown"></div>
+                
                 <div class="heading">
                     <h1 class="storm-name">{{ storm.name }}</h1>
+                    <div class="countdown" id="countdown"></div>
                     <div class="description">
                         <button type="button" id="show-hide-btn">Показать описание шторма</button>
                         <h2 style="display: none;" class="storm-desc">{{ storm.description }}</h2>
@@ -46,11 +49,13 @@
         </div>
 
     </div>
+    <script src="https://unpkg.com/huebee@2/dist/huebee.pkgd.min.js"></script>
+    <script src={{ url_for('static', filename='luxon.js') }}></script>
     <script src={{ url_for('static', filename="querySendBtnChanger.js") }}></script>
     <script src={{ url_for('static', filename="work_color_picker.js") }}></script>
     <script src={{ url_for('static', filename="pre-sending-changer.js") }}></script>
     <script src={{ url_for('static', filename="description_closer.js") }}></script>
     <script src={{ url_for('static', filename="datetime_changer.js") }}></script>
-    
+    <script src={{ url_for('static', filename="countdown.js") }}></script>
 
 {% endblock %}

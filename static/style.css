@@ -378,7 +378,7 @@ button {
 }
 .write-idea-btn {
     font-size: 3vh;
-    border-radius: 0%;
+
     width: 20%;
 }
 
@@ -443,6 +443,9 @@ button {
 .storms-list {
     width: 50%;
     margin: 2% auto;
+}
+.countdown {
+    position:absolute;
 }
 @media (max-width: 720px) {
     .storms-list {
