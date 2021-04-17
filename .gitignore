@@ -4,3 +4,4 @@ venv
 Procfile
 *.log
 brainstormed.db
+usertmpfiles

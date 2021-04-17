@@ -1,3 +1,5 @@
+import os
+
 from flask import Flask, make_response
 from flask_migrate import Migrate, MigrateCommand
 from config import Config
@@ -7,7 +9,7 @@ import random
 import logging
 import sys
 from logging import Formatter
-
+from flask import send_file, abort
 
 def log_to_stderr(app):
     handler = logging.StreamHandler(sys.stderr)
@@ -38,6 +40,13 @@ def generate_code(codes):
     if res in codes:
         res = generate_code(codes)
     return res
+
+
+def generate_text(ideas):
+    text = ""
+    for idea in ideas:
+        text += str(idea.text) + "\n\n\n" + "-" * 10 + "\n"
+    return text
 
 
 @app.errorhandler(500)
@@ -130,6 +139,26 @@ def my_storms():
     # if not storms:
     #     return render_template('404.html'), 404
     return render_template('your_storms.html', storms=storms[::-1])
+
+
+@app.route("/storm/download/<code>")
+def download_file(code):
+    try:
+        filelist = [f for f in os.listdir(app.config["CLIENT_TXT"])]
+        for file in filelist:
+            os.remove(os.path.join(app.config["CLIENT_TXT"], file))
+
+        storm = Storm.query.filter(Storm.code == code).first()
+        ideas = Idea.query.filter(Idea.storm_id == storm.id)
+        path = app.config["CLIENT_TXT"]+"storm_"+code+".txt"
+        text = generate_text(ideas)
+        f = open(path, "w", encoding="utf-8")
+        f.write(text)
+        f.close()
+        return send_file(path, as_attachment=True, cache_timeout=0)
+    except FileNotFoundError:
+        abort(404)
+
 
 
 if __name__ == '__main__':

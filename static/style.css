@@ -447,7 +447,27 @@ button {
 .countdown {
     position:absolute;
 }
+
+.downloadtxt {
+    text-align: right;
+    right: 0;
+    color:#151515;
+    font-size: 2.3vh;
+    transition-duration: 0.7s;
+}
+.downloadtxt:hover {
+    font-size: 2.7vh;
+    color: #4c1e67;
+    transition-duration: 0.7s;
+}
+.downloadtxt:active {
+    font-size: 2.3vh;
+    color: #151515;
+}
 @media (max-width: 720px) {
+    .downloadtxt  {
+        display: none;
+    }
     .storms-list {
         width: 80%;
     }
@@ -516,6 +536,7 @@ button {
     }
     .storm-name {
         font-size: 3vh;
+        margin-top: 10%;
     }
     
 

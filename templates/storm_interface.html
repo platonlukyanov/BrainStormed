@@ -12,7 +12,9 @@
         <div class="interface">
             <div class="interface-infomediacontent">
                 <div class="countdown" id="countdown"></div>
-                
+                <a href="{{ url_for('download_file', code=storm.code) }}">
+                    <div class="downloadtxt">Загрузить как файл</div>
+                </a>
                 <div class="heading">
                     <h1 class="storm-name">{{ storm.name }}</h1>
                     <div class="countdown" id="countdown"></div>
