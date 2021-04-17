@@ -423,7 +423,10 @@ button {
     padding: 4%;
     border-radius: 20px;
 }
-
+.mystorms-btns {
+    display: flex;
+    justify-content: space-evenly;
+}
 .storm-card-name {
     font-weight: bold;
     font-size: 4vh;

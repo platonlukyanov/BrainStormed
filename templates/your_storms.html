@@ -13,9 +13,15 @@
                 <div class="storm-card">
                     <h4 class="storm-card-name">{{ storm.name }}</h4>
                     <p class="little-storm-description">Описание: <br>{{ storm.description }}</p>
-                    <div class="little-follow-btn enter-btn">
-                        <a href="/storm/{{ storm.code }}">Перейти</a>
-                    </div>
+
+                   <div class="mystorms-btns">
+                        <div class="little-follow-btn enter-btn">
+                            <a href="/storm/{{ storm.code }}">Перейти</a>
+                        </div>
+                        <div class="little-follow-btn create-btn">
+                            <a href="{{ url_for('download_file', code=storm.code) }}">Загрузить как файл</a>
+                        </div>
+                   </div>
                 </div>
 
 
