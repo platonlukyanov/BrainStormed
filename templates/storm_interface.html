@@ -23,6 +23,7 @@
                         <h2 style="display: none;" class="storm-desc">{{ storm.description }}</h2>
                     </div>
                 </div>
+                
                 <div class="interface__main">
     
                     {% for idea in ideas %}
@@ -34,20 +35,22 @@
                         </div>
                     {% endfor %}
                 </div>
-            </div>
-            <div class="interface__write">
-                <form action="" method="POST" class="write-idea" id="write-idea-form">
 
-                        <textarea class="input area write-idea-input write-idea-text" name="text"
-                                  id="idea-form"></textarea>
-                    <img src="{{ url_for('static', filename='palette.svg') }}"
-                         class="color-input choose-idea-color">
-                    <input type="color" name="color" style="display: none" id="color-sender">
-                    <button type="submit" class="create-btn write-idea-btn" value="Отправить" id="write-idea-btn">
-                        Отправить
-                    </button>
-                </form>
+                <div class="interface__write" id="ifwrite">
+                    <form action="" method="POST" class="write-idea" id="write-idea-form">
+    
+                            <textarea class="input area write-idea-input write-idea-text" name="text"
+                                      id="idea-form"></textarea>
+                        <img src="{{ url_for('static', filename='palette.svg') }}"
+                             class="color-input choose-idea-color">
+                        <input type="color" name="color" style="display: none" id="color-sender">
+                        <button type="submit" class="create-btn write-idea-btn" value="Отправить" id="write-idea-btn">
+                            Отправить
+                        </button>
+                    </form>
+                </div>
             </div>
+            
         </div>
 
     </div>
