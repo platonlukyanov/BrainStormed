@@ -333,6 +333,7 @@ button {
     padding: 2%;
     box-shadow: 0 0 5px rgb(61, 60, 60);
     background-color: #c4bbbb;
+    transition-duration: 0.7s;
 }
 .color-input {
     outline: none;
@@ -344,7 +345,12 @@ button {
     color: rgba(0, 0, 0, 0);
     outline: none;
 }
-
+#txtareahider {
+    position: absolute;
+    width: 3em;
+    top: 15%;
+    right: 2%;
+}
 .write-idea {
     display: flex;
     position: relative;
@@ -555,6 +561,8 @@ button {
         font-size: 3vh;
         margin-top: 10%;
     }
-    
+    #txtareahider {
+        visibility: hidden;
+    }
 
 }

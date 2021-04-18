@@ -37,6 +37,7 @@
                 </div>
 
                 <div class="interface__write" id="ifwrite">
+                    <img src="{{ url_for('static', filename='visibility.png') }}" alt="Скрыть/показать" id="txtareahider">
                     <form action="" method="POST" class="write-idea" id="write-idea-form">
     
                             <textarea class="input area write-idea-input write-idea-text" name="text"
@@ -54,6 +55,7 @@
         </div>
 
     </div>
+    <script src={{ url_for('static', filename="cookie.umd.min.js") }}></script>
     <script src="https://unpkg.com/huebee@2/dist/huebee.pkgd.min.js"></script>
     <script src={{ url_for('static', filename='luxon.js') }}></script>
     <script src={{ url_for('static', filename="querySendBtnChanger.js") }}></script>
@@ -62,5 +64,6 @@
     <script src={{ url_for('static', filename="description_closer.js") }}></script>
     <script src={{ url_for('static', filename="datetime_changer.js") }}></script>
     <script src={{ url_for('static', filename="countdown.js") }}></script>
+    <script src={{ url_for('static', filename="write_txt_closeopener.js") }}></script>
 
 {% endblock %}
